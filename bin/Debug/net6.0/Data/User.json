@@ -1,0 +1,45 @@
+[{
+        "id": 1,
+        "Username": "joni",
+        "Password": 1234,
+        "isAdmin": true,
+        "taskList": [{
+                "Id": 16,
+                "name": "",
+                "IsDone": false
+            },
+            {
+                "Id": 17,
+                "name": "",
+                "IsDone": false
+            },
+            {
+                "Id": 18,
+                "name": "",
+                "IsDone": false
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "Username": "menachem",
+        "Password": 12,
+        "isAdmin": false,
+        "taskList": [{
+                "Id": 16,
+                "name": "",
+                "IsDone": false
+            },
+            {
+                "Id": 17,
+                "name": "",
+                "IsDone": false
+            },
+            {
+                "Id": 18,
+                "name": "",
+                "IsDone": false
+            }
+        ]
+    }
+]

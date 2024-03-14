@@ -1,0 +1,37 @@
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\appsettings.Development.json
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\appsettings.json
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\פרוייקט חדש!!!!!!!.exe
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\פרוייקט חדש!!!!!!!.deps.json
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\פרוייקט חדש!!!!!!!.runtimeconfig.json
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\פרוייקט חדש!!!!!!!.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\פרוייקט חדש!!!!!!!.pdb
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\Microsoft.OpenApi.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.csproj.AssemblyReference.cache
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.GeneratedMSBuildEditorConfig.editorconfig
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.AssemblyInfoInputs.cache
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.AssemblyInfo.cs
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.csproj.CoreCompileInputs.cache
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.MvcApplicationPartsAssemblyInfo.cs
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.MvcApplicationPartsAssemblyInfo.cache
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\staticwebassets.build.json
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\staticwebassets.development.json
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\scopedcss\bundle\פרוייקט חדש!!!!!!!.styles.css
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.csproj.CopyComplete
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\refint\פרוייקט חדש!!!!!!!.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.pdb
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.genruntimeconfig.cache
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\obj\Debug\net6.0\ref\פרוייקט חדש!!!!!!!.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\Data\Task.json
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\Data\User.json
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\פרוייקט חדש!!!!!!!.staticwebassets.runtime.json
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\פרוייקט חדש!!!!!!!\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
