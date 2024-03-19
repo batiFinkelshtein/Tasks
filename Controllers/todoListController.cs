@@ -7,7 +7,7 @@ using todoList.Interfaces;
 namespace todoList.Controllers;
 
 [ApiController]
-[Route("todo")]
+[Route("[controller]")]
 public class todoListController : ControllerBase
 {
     ITaskService TaskService1;

@@ -5,49 +5,40 @@ using todoList.Models;
 using todoList.Interfaces;
 using System;
 using Microsoft.AspNetCore.Authorization;
-
+using todoList.Services;
+using todoList.Models;
+using System.Security.Claims;
 namespace todoList.Controllers;
 
-[ApiController, Authorize]
+[ApiController]
 [Route("todo")]
 [Authorize(Policy = "User")]
-
 public class UserController : ControllerBase
 {
-    Iuser iuser;
-    public UserController(Iuser user)
+    public UserController() { }
+    [HttpPost]
+    [Route("[action]")]
+    public ActionResult<String> Login([FromBody] User User)
     {
-        this.iuser = user;
+        var dt = DateTime.Now;
+
+        if (User.UserName != "Wray"
+        || User.Password != $"W{dt.Year}#{dt.Day}!")
+        {
+            return Unauthorized();
+        }
+
+        var claims = new List<Claim>
+            {
+                new Claim("type", "Admin"),
+            };
+
+        var token = TokenServise.GetToken(claims);
+
+        return new OkObjectResult(TokenServise.WriteToken(token));
     }
 
-    [HttpGet]
-    [Route("[action]")]
-    public ActionResult<String> AccessPublicFiles()
-    {
-        return new OkObjectResult($"Public Files Accessed by ");
-    }
-    // [HttpPost("login")]
-    // public IActionResult Login([FromBody] Login user)
-    // {
-    //     if (user is null)
-    //     {
-    //         return BadRequest("Invalid user request!!!");
-    //     }
-    //     if (user.UserName == "Jaydeep" && user.Password == "Pass@777")
-    //     {
-    //         var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(ConfigurationManager.AppSetting["JWT:Secret"]));
-    //         var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
-    //         var tokeOptions = new JwtSecurityToken(
-    //             issuer: ConfigurationManager.AppSetting["JWT:ValidIssuer"],
-    //             audience: ConfigurationManager.AppSetting["JWT:ValidAudience"],
-    //             claims: new List<Claim>(),
-    //             expires: DateTime.Now.AddMinutes(6),
-    //             signingCredentials: signinCredentials
-    //         );
-    //         var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
-    //         return Ok(new JWTTokenResponse { Token = tokenString });
-    //     }
-    //     return Unauthorized();
-    // }
+
+
 
 }

@@ -10,6 +10,7 @@ using System;
 using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.OpenApi.Models;
+using System.Security.Claims;
 
 
   void ConfigureServices(IServiceCollection services)
