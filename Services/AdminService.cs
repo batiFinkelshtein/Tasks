@@ -33,19 +33,35 @@ public class AdminService : Iadmin
         File.WriteAllText(fileName, JsonSerializer.Serialize(users));
     }
 
-    List<User> Iadmin.getAllUsers()=>users;
-   
+    List<User> Iadmin.getAllUsers() => users;
+
     int Iadmin.AddUser(User user)
     {
-        user.id=users.Max(u=>u.id)+1;
-       users.Add(user);
-       saveToFile();
-       return user.id;
+        user.id = users.Max(u => u.id) + 1;
+        users.Add(user);
+        saveToFile();
+        return user.id;
 
     }
 
     bool Iadmin.DeleteUser(int id)
     {
-       return false;
+        int MyIndex = -1;
+        for (int i = 0; i < users.Count; i++)
+        {
+            if (users[i].id == id)
+            {
+                MyIndex = i;
+                break;
+            }
+
+        }
+        if(MyIndex!=-1)
+        {
+            users.RemoveAt(MyIndex);
+            saveToFile();
+            return true;
+        }
+        return false;
     }
 }
