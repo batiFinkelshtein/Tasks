@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\פרוייקט חדש!!!!!!!\\פרוייקט חדש!!!!!!!.csproj": {}
+    "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\פרוייקט חדש!!!!!!!.csproj": {}
   },
   "projects": {
-    "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\פרוייקט חדש!!!!!!!\\פרוייקט חדש!!!!!!!.csproj": {
+    "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\פרוייקט חדש!!!!!!!.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\פרוייקט חדש!!!!!!!\\פרוייקט חדש!!!!!!!.csproj",
+        "projectUniqueName": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\פרוייקט חדש!!!!!!!.csproj",
         "projectName": "פרוייקט חדש!!!!!!!",
-        "projectPath": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\פרוייקט חדש!!!!!!!\\פרוייקט חדש!!!!!!!.csproj",
+        "projectPath": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\פרוייקט חדש!!!!!!!.csproj",
         "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
-        "outputPath": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\פרוייקט חדש!!!!!!!\\obj\\",
+        "outputPath": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

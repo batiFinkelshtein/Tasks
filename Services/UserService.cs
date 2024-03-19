@@ -45,7 +45,7 @@ public class UserService : Iuser
         return lt;
 
     }
-    public List<task> GetTaskById(int id)
+    public List<task> GetTasksById(int id)
     {
         List<task> lt = new List<task>();
         foreach (User user in users)
@@ -59,6 +59,25 @@ public class UserService : Iuser
             }
         }
         return lt;
+    }
+    public  task? GetTaskById(int userId,int taskId)
+    {
+       task OneTask;
+        foreach (User user in users)
+        {
+            if (user.id == userId)
+            {
+                foreach (task task in user.taskList)
+                {
+                    if(task.Id==taskId){
+                        OneTask=task;
+                        return OneTask;
+                    }
+
+                }
+            }
+        }
+        return null;
     }
     public int AddTask(int id, task newTask)
     {

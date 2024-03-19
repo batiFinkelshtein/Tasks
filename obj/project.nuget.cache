@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Xxm+2R/LaEGP5keYmnrDo1/K7rXPYjPUZPbm4gyIec+6X2sgcox3iSoaku/7ZBFehsFrgkMBvM4OG+GwBliElA==",
+  "dgSpecHash": "yqTkZemV5Jiu/potGqIM36wYYi/WCRtjmaWHmwzs1NhY4WJSnYdp8KNTkSndb4MuM+RsLapN8AXclyFMZq/V7A==",
   "success": true,
-  "projectFilePath": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\פרוייקט חדש!!!!!!!\\פרוייקט חדש!!!!!!!.csproj",
+  "projectFilePath": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\פרוייקט חדש!!!!!!!.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.4\\microsoft.aspnetcore.authentication.jwtbearer.5.0.4.nupkg.sha512",
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
