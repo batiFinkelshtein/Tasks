@@ -31,7 +31,12 @@ namespace todoList.Services;
                 IssuerSigningKey = key,
                 ClockSkew = TimeSpan.Zero 
             };
-     
+            
+        public static string WriteToken(SecurityToken token) =>
             new JwtSecurityTokenHandler().WriteToken(token);
+            
     }
+
+   
+
     

@@ -1,10 +1,15 @@
 using todoList.Services;
+using todoList.Interfaces;
+using todoList.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using TODOLIST.Middlewares;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Text;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.OpenApi.Models;
 
 
   void ConfigureServices(IServiceCollection services)
@@ -18,21 +23,19 @@ using Microsoft.IdentityModel.Tokens;
                 .AddJwtBearer(cfg =>
                 {
                     cfg.RequireHttpsMetadata = false;
-                    cfg.TokenValidationParameters = FbiTokenService.GetTokenValidationParameters();
+                    cfg.TokenValidationParameters = TokenServise.GetTokenValidationParameters();
                 });
             //auth2
             services.AddAuthorization(cfg =>
                 {
                     cfg.AddPolicy("Admin", policy => policy.RequireClaim("type", "Admin"));
-                    cfg.AddPolicy("Agent", policy => policy.RequireClaim("type", "Agent"));
-                    cfg.AddPolicy("ClearanceLevel1", policy => policy.RequireClaim("ClearanceLevel", "1", "2"));
-                    cfg.AddPolicy("ClearanceLevel2", policy => policy.RequireClaim("ClearanceLevel", "2"));
+                    cfg.AddPolicy("User", policy => policy.RequireClaim("type", "User"));
                 });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FBI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tasks", Version = "v1" });
                 //auth3
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
@@ -47,7 +50,9 @@ using Microsoft.IdentityModel.Tokens;
                         {
                          Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer"}
                         },
-                    new string[] {}
+                    new string[] {
+
+                    }
                 }
                 });
             });

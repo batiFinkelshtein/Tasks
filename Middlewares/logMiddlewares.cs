@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace TODOLIST.Middlewares;
+namespace todoList.Middlewares;
 
 public class LogMiddleware
 {
