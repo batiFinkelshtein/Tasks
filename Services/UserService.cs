@@ -33,7 +33,14 @@ public class UserService : Iuser
         File.WriteAllText(fileName, JsonSerializer.Serialize(users));
     }
     public User findMe(User user)
-    {return users.Find(u=>u.id==user.id&&u.Password.Equals(user.Password));}
+    {
+        for (int i = 0; i < users.Count; i++)
+        {
+            if(users[i].id==user.id&&users[i].Password.Equals(user.Password) )
+            return users[i];
+        }
+        return null;
+    }
     public List<task> GetAllTasks()
     {
         List<task> lt = new List<task>();
@@ -144,6 +151,14 @@ return false;
 }
 
 
+public static class UserUtils
+{
+    public static void AddUser(this IServiceCollection services)
+    {
+       
+        services.AddSingleton<Iuser, UserService>();
+    }
+}
 
 
 

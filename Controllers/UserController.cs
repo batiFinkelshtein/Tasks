@@ -15,29 +15,39 @@ namespace todoList.Controllers;
 //[Authorize(Policy = "User")]
 public class UserController : ControllerBase
 {
-    public UserController() { }
-    [HttpPost]
-    [Route("[action]")]
-    public ActionResult<String> Login([FromBody] User User)
+     Iuser IuserService;
+     public UserController(Iuser iuser)
     {
-        var dt = DateTime.Now;
-        User user=new User();
-        user=UserService.findMe(User);
-
-        if (user==null)
-        {
-            return Unauthorized();
-        }
-
-        var claims = new List<Claim>
-            {
-                new Claim("type", "Admin"),
-            };
-
-        var token = TokenServise.GetToken(claims);
-
-        return new OkObjectResult(TokenServise.WriteToken(token));
+        this.IuserService = iuser;
     }
+    // [HttpGet]
+    // public ActionResult<List<task>> Get()
+    // {
+    //     return IuserService.GetAllTasks();
+    // }
+    //  User user;
+    // [HttpPost]
+    // [Route("[action]")]
+    // public ActionResult<String> Login([FromBody] User user)
+    // {
+    //     var dt = DateTime.Now;
+        
+    //     // user=IuserService.findMe(user);
+
+    //     // if (user==null)
+    //     // {
+    //     //     return Unauthorized();
+    //     // }
+
+    //     var claims = new List<Claim>
+    //         {
+    //             new Claim("type", "User"),
+    //         };
+
+    //     var token = TokenServise.GetToken(claims);
+
+    //     return new OkObjectResult(TokenServise.WriteToken(token));
+    // }
 
 
 //   [HttpGet]

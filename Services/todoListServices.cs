@@ -100,6 +100,7 @@ public static class TaskUtils
     public static void AddTask(this IServiceCollection services)
     {
         services.AddSingleton<ITaskService, todoListServices>();
+        services.AddSingleton<Iuser, UserService>();
     }
 }
 
