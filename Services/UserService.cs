@@ -32,6 +32,8 @@ public class UserService : Iuser
     {
         File.WriteAllText(fileName, JsonSerializer.Serialize(users));
     }
+    public User findMe(User user)
+    {return users.Find(u=>u.id==user.id&&u.Password.Equals(user.Password));}
     public List<task> GetAllTasks()
     {
         List<task> lt = new List<task>();

@@ -11,8 +11,8 @@ using System.Security.Claims;
 namespace todoList.Controllers;
 
 [ApiController]
-[Route("todo")]
-[Authorize(Policy = "User")]
+[Route("user")]
+//[Authorize(Policy = "User")]
 public class UserController : ControllerBase
 {
     public UserController() { }
@@ -21,9 +21,10 @@ public class UserController : ControllerBase
     public ActionResult<String> Login([FromBody] User User)
     {
         var dt = DateTime.Now;
+        User user=new User();
+        user=UserService.findMe(User);
 
-        if (User.UserName != "Wray"
-        || User.Password != $"W{dt.Year}#{dt.Day}!")
+        if (user==null)
         {
             return Unauthorized();
         }
@@ -39,6 +40,11 @@ public class UserController : ControllerBase
     }
 
 
-
+//   [HttpGet]
+//   [Authorize(Policy = "User")]
+//     public ActionResult<List<task>> GetTasks()
+//     {
+//         return UserService.GetAllTasks();
+//     }
 
 }
