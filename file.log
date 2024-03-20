@@ -1,11 +1,7 @@
-/todo.GET took 4ms. User: unknown
-/todo.GET took 1ms. User: unknown
-/index.html.GET took 12ms. User: unknown
-/todo.GET took 1ms. User: unknown
-/todo.GET took 1ms. User: unknown
-/index.html.GET took 3ms. User: unknown
+/todo.GET took 3ms. User: unknown
+/index.html.GET took 33ms. User: unknown
+/css/site.css.GET took 5ms. User: unknown
+/favicon.ico.GET took 4ms. User: unknown
+/favicon.ico.GET took 1ms. User: unknown
 /todo.GET took 0ms. User: unknown
-/todo.GET took 3ms. User: unknown
-/todo.GET took 4ms. User: unknown
-/todo.GET took 5ms. User: unknown
-/todo.GET took 3ms. User: unknown
+/todo.GET took 1ms. User: unknown

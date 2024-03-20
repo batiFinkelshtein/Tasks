@@ -13,40 +13,40 @@ using Microsoft.OpenApi.Models;
 using System.Security.Claims;
 
 
-  void ConfigureServices(IServiceCollection services)
+void ConfigureServices(IServiceCollection services)
+{
+    services
+        // 
+        .AddAuthentication(options =>
         {
-            services
-            // 
-                .AddAuthentication(options =>
-                {
-                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
-                .AddJwtBearer(cfg =>
-                {
-                    cfg.RequireHttpsMetadata = false;
-                    cfg.TokenValidationParameters = TokenServise.GetTokenValidationParameters();
-                });
-            //auth2
-            services.AddAuthorization(cfg =>
-                {
-                    cfg.AddPolicy("Admin", policy => policy.RequireClaim("type", "Admin"));
-                    cfg.AddPolicy("User", policy => policy.RequireClaim("type", "User"));
-                });
+            options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(cfg =>
+        {
+            cfg.RequireHttpsMetadata = false;
+            cfg.TokenValidationParameters = TokenServise.GetTokenValidationParameters();
+        });
+    //auth2
+    services.AddAuthorization(cfg =>
+        {
+            cfg.AddPolicy("Admin", policy => policy.RequireClaim("type", "Admin"));
+            cfg.AddPolicy("User", policy => policy.RequireClaim("type", "User"));
+        });
 
-            services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tasks", Version = "v1" });
-                //auth3
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    In = ParameterLocation.Header,
-                    Description = "Please enter JWT with Bearer into field",
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey
-                });
-                //auth4
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+    services.AddControllers();
+    services.AddSwaggerGen(c =>
+    {
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tasks", Version = "v1" });
+        //auth3
+        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            In = ParameterLocation.Header,
+            Description = "Please enter JWT with Bearer into field",
+            Name = "Authorization",
+            Type = SecuritySchemeType.ApiKey
+        });
+        //auth4
+        c.AddSecurityRequirement(new OpenApiSecurityRequirement {
                 { new OpenApiSecurityScheme
                         {
                          Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer"}
@@ -55,9 +55,9 @@ using System.Security.Claims;
 
                     }
                 }
-                });
-            });
-        }
+        });
+    });
+}
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -75,7 +75,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-      app.UseRouting();
+app.UseRouting();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 app.UseLogMiddleware("file.log");
 app.UseDefaultFiles();
@@ -87,7 +87,6 @@ app.UseStaticFiles();
 app.UseAuthorization();
 app.UseAuthentication();
 
-app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
