@@ -51,7 +51,6 @@ public class LoginController : ControllerBase
         return new OkObjectResult(TokenServise.WriteToken(token));
     }
     [HttpGet]
-    
     [Authorize(Policy ="User")]
     public ActionResult<List<task>> Get()
     {
