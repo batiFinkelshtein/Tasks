@@ -32,15 +32,15 @@ public class UserService : Iuser
     {
         File.WriteAllText(fileName, JsonSerializer.Serialize(users));
     }
-    // public User findMe(User user)
-    // {
-    //     for (int i = 0; i < users.Count; i++)
-    //     {
-    //         if(users[i].id==user.id&&users[i].Password.Equals(user.Password) )
-    //         return users[i];
-    //     }
-    //     return null;
-    // }
+    public User? findMe(String name,String Password )
+    {
+        for (int i = 0; i < users.Count; i++)
+        {
+            if(users[i].Password.Equals(Password) )
+            return users[i];
+        }
+        return null;
+    }
     public  List<task> GetAllTasks()
     {
         List<task> lt = new List<task>();

@@ -12,28 +12,39 @@ namespace todoList.Controllers;
 
 [ApiController]
 [Route("login")]
-//[Authorize(Policy = "User")]
 public class LoginController : ControllerBase
 {
-    
+         Iuser IuserService;
+      public LoginController(Iuser iuser)
+    {
+        this.IuserService = iuser;
+    }
     public User Myuser=null;
     [HttpPost]
     [Route("[action]")]
-    public ActionResult<String> Login([FromBody] User user)
+    public ActionResult<String> Login([FromBody] String Username,String Password)
     {
-        
-       // List<task> users=IuserService.GetAllTasks();
-        //Myuser=IuserService.findMe(user);
 
-        if (user.Password.Equals("ffff"))
+        Myuser=IuserService.findMe(Username,Password);
+
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+        if (Myuser==null)
         {
             return Unauthorized();
         }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
         var claims = new List<Claim>
             {
-                new Claim("type", "User"),
+                new Claim("id", Myuser.id.ToString()),
             };
+            if(Myuser.Password.Equals("1234"))
+            {
+                claims.Add(new Claim("type", "Admin"));
+            }
+            else{
+                claims.Add(new Claim("type", "User"));
+            }
 
         var token = TokenServise.GetToken(claims);
 

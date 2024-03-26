@@ -1,21 +1,21 @@
 [{
         "id": 1,
         "Username": "joni",
-        "Password": 1234,
+        "Password": "1234",
         "isAdmin": true,
         "taskList": [{
                 "Id": 16,
-                "name": "",
+                "name": "gbdtgdg",
                 "IsDone": false
             },
             {
                 "Id": 17,
-                "name": "",
+                "name": "gfgfgrdsgdr",
                 "IsDone": false
             },
             {
                 "Id": 18,
-                "name": "",
+                "name": "gfdgffgs",
                 "IsDone": false
             }
         ]
@@ -23,21 +23,21 @@
     {
         "id": 2,
         "Username": "menachem",
-        "Password": 12,
+        "Password": "12",
         "isAdmin": false,
         "taskList": [{
                 "Id": 16,
-                "name": "",
+                "name": "gsgsf",
                 "IsDone": false
             },
             {
                 "Id": 17,
-                "name": "",
+                "name": "gdgfs",
                 "IsDone": false
             },
             {
                 "Id": 18,
-                "name": "",
+                "name": "gsdfgsfSG",
                 "IsDone": false
             }
         ]

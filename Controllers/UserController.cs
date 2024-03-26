@@ -14,7 +14,7 @@ namespace todoList.Controllers;
 
 [ApiController]
 [Route("user")]
-//[Authorize(Policy = "User")]
+[Authorize(Policy = "Admin")]
 public class UserController : ControllerBase
 {
      Iuser IuserService;
@@ -28,35 +28,13 @@ public class UserController : ControllerBase
         return IuserService.GetAllTasks();
     }
      User user;
-    [HttpPost]
-    [Route("[action]")]
-    public ActionResult<String> Login([FromBody] User user)
-    {
-        var dt = DateTime.Now;
-        
-        user=IuserService.findMe(user);
+    
 
-        if (user==null)
-        {
-            return Unauthorized();
-        }
-
-        var claims = new List<Claim>
-            {
-                new Claim("type", "User"),
-            };
-
-        var token = TokenServise.GetToken(claims);
-
-        return new OkObjectResult(TokenServise.WriteToken(token));
-    }
-
-
-  [HttpGet]
- // [Authorize(Policy = "User")]
-    public ActionResult<List<task>> GetTasks()
-    {
-        return IuserService.GetAllTasks();
-    }
+//   [HttpGet]
+//  // [Authorize(Policy = "User")]
+//     public ActionResult<List<task>> GetTasks()
+//     {
+//         return IuserService.GetAllTasks();
+//     }
 
 }
