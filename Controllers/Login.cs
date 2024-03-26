@@ -15,18 +15,14 @@ namespace todoList.Controllers;
 //[Authorize(Policy = "User")]
 public class LoginController : ControllerBase
 {
-    //  Iuser IuserService;
-    //  public LoginController(Iuser iuser)
-    // {
-    //     this.IuserService = iuser;
-    // }
+    
     public User Myuser=null;
     [HttpPost]
     [Route("[action]")]
     public ActionResult<String> Login([FromBody] User user)
     {
         
-        
+       // List<task> users=IuserService.GetAllTasks();
         //Myuser=IuserService.findMe(user);
 
         if (user.Password.Equals("ffff"))

@@ -8,7 +8,9 @@ using Microsoft.AspNetCore.Authorization;
 using todoList.Services;
 using todoList.Models;
 using System.Security.Claims;
+using Microsoft.Extensions.Configuration;
 namespace todoList.Controllers;
+
 
 [ApiController]
 [Route("user")]
@@ -20,41 +22,41 @@ public class UserController : ControllerBase
     {
         this.IuserService = iuser;
     }
-    // [HttpGet]
-    // public ActionResult<List<task>> Get()
-    // {
-    //     return IuserService.GetAllTasks();
-    // }
-    //  User user;
-    // [HttpPost]
-    // [Route("[action]")]
-    // public ActionResult<String> Login([FromBody] User user)
-    // {
-    //     var dt = DateTime.Now;
+    [HttpGet]
+    public ActionResult<List<task>> Get()
+    {
+        return IuserService.GetAllTasks();
+    }
+     User user;
+    [HttpPost]
+    [Route("[action]")]
+    public ActionResult<String> Login([FromBody] User user)
+    {
+        var dt = DateTime.Now;
         
-    //     // user=IuserService.findMe(user);
+        user=IuserService.findMe(user);
 
-    //     // if (user==null)
-    //     // {
-    //     //     return Unauthorized();
-    //     // }
+        if (user==null)
+        {
+            return Unauthorized();
+        }
 
-    //     var claims = new List<Claim>
-    //         {
-    //             new Claim("type", "User"),
-    //         };
+        var claims = new List<Claim>
+            {
+                new Claim("type", "User"),
+            };
 
-    //     var token = TokenServise.GetToken(claims);
+        var token = TokenServise.GetToken(claims);
 
-    //     return new OkObjectResult(TokenServise.WriteToken(token));
-    // }
+        return new OkObjectResult(TokenServise.WriteToken(token));
+    }
 
 
-//   [HttpGet]
-//   [Authorize(Policy = "User")]
-//     public ActionResult<List<task>> GetTasks()
-//     {
-//         return UserService.GetAllTasks();
-//     }
+  [HttpGet]
+ // [Authorize(Policy = "User")]
+    public ActionResult<List<task>> GetTasks()
+    {
+        return IuserService.GetAllTasks();
+    }
 
 }
