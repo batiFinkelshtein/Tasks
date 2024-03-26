@@ -17,9 +17,9 @@ public class LoginController : ControllerBase
          Iuser IuserService;
       public LoginController(Iuser iuser)
     {
-        this.IuserService = iuser;
+        this.IuserService= iuser;
     }
-    public User Myuser=null;
+    public  User Myuser=null;
     [HttpPost]
     [Route("[action]")]
     public ActionResult<String> Login([FromBody] String Username,String Password)
@@ -38,7 +38,7 @@ public class LoginController : ControllerBase
             {
                 new Claim("id", Myuser.id.ToString()),
             };
-            if(Myuser.Password.Equals("1234"))
+            if(Myuser.isAdmin)
             {
                 claims.Add(new Claim("type", "Admin"));
             }
@@ -50,4 +50,12 @@ public class LoginController : ControllerBase
 
         return new OkObjectResult(TokenServise.WriteToken(token));
     }
+    [HttpGet]
+    
+    [Authorize(Policy ="User")]
+    public ActionResult<List<task>> Get()
+    {
+        return IuserService.GetAllTasks();
+    }
+   
     }

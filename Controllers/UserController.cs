@@ -14,7 +14,7 @@ namespace todoList.Controllers;
 
 [ApiController]
 [Route("user")]
-[Authorize(Policy = "Admin")]
+[Authorize(Policy = "User")]
 public class UserController : ControllerBase
 {
      Iuser IuserService;
