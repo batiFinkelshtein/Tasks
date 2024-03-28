@@ -8,13 +8,14 @@ using Microsoft.AspNetCore.Authorization;
 using todoList.Services;
 using todoList.Models;
 using System.Security.Claims;
+
 namespace todoList.Controllers;
 
 [ApiController]
-[Route("login")]
+[Route("todo")]
 public class LoginController : ControllerBase
 {
-         Iuser IuserService;
+        public Iuser IuserService;
       public LoginController(Iuser iuser)
     {
         this.IuserService= iuser;
@@ -51,10 +52,23 @@ public class LoginController : ControllerBase
         return new OkObjectResult(TokenServise.WriteToken(token));
     }
     [HttpGet]
-    [Authorize(Policy ="User")]
+    [Authorize(Policy ="Admin")]
     public ActionResult<List<task>> Get()
     {
         return IuserService.GetAllTasks();
     }
-   
+     [HttpGet]
+     [Route("[action]")]
+     [Authorize (Policy ="User")]
+    public ActionResult<List<task>> GetMyTasks()
+    {
+        return IuserService.GetTasksById(2);
+    }
+    // [httpGet]
+    // [Authorize]
+    // public ActionResult<List<task>> GetById()
+    // {
+    //     return IuserService.GetTasksById(Myuser.id);
+    // }
+
     }
