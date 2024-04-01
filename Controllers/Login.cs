@@ -6,7 +6,6 @@ using todoList.Interfaces;
 using System;
 using Microsoft.AspNetCore.Authorization;
 using todoList.Services;
-using todoList.Models;
 using System.Security.Claims;
 
 namespace todoList.Controllers;
@@ -15,55 +14,49 @@ namespace todoList.Controllers;
 [Route("todo")]
 public class LoginController : ControllerBase
 {
-        public Iuser IuserService;
-      public LoginController(Iuser iuser)
+    public Iuser IuserService;
+    // public User Myuser = null;
+    public LoginController(Iuser iuser)
     {
-        this.IuserService= iuser;
+        this.IuserService = iuser;
     }
-    public  User Myuser=null;
+
     [HttpPost]
     [Route("[action]")]
-    public ActionResult<String> Login([FromBody] String Username,String Password)
+    public ActionResult<String> Login([FromBody] User User)
     {
-
-        Myuser=IuserService.findMe(Username,Password);
-
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-        if (Myuser==null)
+        if (IuserService.findMe(User) == null)
         {
             return Unauthorized();
         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
-        var claims = new List<Claim>
-            {
-                new Claim("id", Myuser.id.ToString()),
-            };
-            if(Myuser.isAdmin)
-            {
-                claims.Add(new Claim("type", "Admin"));
-            }
-            else{
-                claims.Add(new Claim("type", "User"));
-            }
+        User Myuser = IuserService.findMe(User);
+
+        var claims = new List<Claim>{new Claim("id", Myuser.id.ToString())};
+        if (Myuser.isAdmin==true)
+        {
+            claims.Add(new Claim("type", "Admin"));
+        }
+        else
+        {
+            claims.Add(new Claim("type", "User"));
+        }
 
         var token = TokenServise.GetToken(claims);
 
         return new OkObjectResult(TokenServise.WriteToken(token));
     }
+
     [HttpGet]
-    [Authorize(Policy ="Admin")]
+    [Authorize]
+    [Route("Get")]
     public ActionResult<List<task>> Get()
     {
         return IuserService.GetAllTasks();
     }
-     [HttpGet]
-     [Route("[action]")]
-     [Authorize (Policy ="User")]
-    public ActionResult<List<task>> GetMyTasks()
-    {
-        return IuserService.GetTasksById(2);
-    }
+
+
+
     // [httpGet]
     // [Authorize]
     // public ActionResult<List<task>> GetById()
@@ -71,4 +64,4 @@ public class LoginController : ControllerBase
     //     return IuserService.GetTasksById(Myuser.id);
     // }
 
-    }
+}

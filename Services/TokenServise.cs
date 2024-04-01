@@ -12,7 +12,7 @@ namespace todoList.Services;
 
     public static class TokenServise
     {
-        private static SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SXkSqsKyNUyvGbnHs7ke2NCq8zQzNLW7mPmHbnZZ"));
+        private static SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("lkrijvfktygh631hgjcjyhkjgi"));
         private static string issuer = "https://localhost:7268";
         public static SecurityToken GetToken(List<Claim> claims) =>
             new JwtSecurityToken(

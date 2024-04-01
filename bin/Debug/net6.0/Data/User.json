@@ -41,5 +41,16 @@
                 "IsDone": false
             }
         ]
+    },
+    {
+        "id": 3,
+        "Username": "rut",
+        "Password": "abc",
+        "isAdmin": false,
+        "taskList": [{
+            "Id": 5,
+            "name": "mmm",
+            "IsDone": true
+        }]
     }
 ]

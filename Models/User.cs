@@ -1,5 +1,6 @@
-namespace todoList.Models;
 using System.Collections.Generic;
+namespace todoList.Models;
+
 public class User
 {
     public int id { get; set; }

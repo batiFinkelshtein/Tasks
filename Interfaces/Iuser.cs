@@ -3,7 +3,7 @@ namespace todoList.Interfaces;
 
 public interface Iuser
 {
-    User? findMe(String name,String Password);
+    User? findMe(User user);
     List<task> GetAllTasks();
     List<task> GetTasksById(int id);
    task? GetTaskById(int userId,int taskId);

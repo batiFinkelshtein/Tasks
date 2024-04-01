@@ -32,11 +32,11 @@ public class UserService : Iuser
     {
         File.WriteAllText(fileName, JsonSerializer.Serialize(users));
     }
-    public User? findMe(String name,String Password )
+    public User? findMe(User User )
     {
         for (int i = 0; i < users.Count; i++)
         {
-            if(users[i].Password.Equals(Password) )
+            if(users[i].Password.Equals(User.Password) )
             return users[i];
         }
         return null;
@@ -151,14 +151,13 @@ return false;
 }
 
 
+
 public static class UserUtils
 {
     public static void AddUser(this IServiceCollection services)
     {
-       
         services.AddSingleton<Iuser, UserService>();
     }
 }
-
 
 
