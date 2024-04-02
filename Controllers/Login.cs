@@ -15,7 +15,7 @@ namespace todoList.Controllers;
 public class LoginController : ControllerBase
 {
     public Iuser IuserService;
-    // public User Myuser = null;
+     public User Myuser = null;
     public LoginController(Iuser iuser,IHttpContextAccessor httpContextAccessor)
     {
        IuserService = iuser;

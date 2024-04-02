@@ -65,3 +65,10 @@ public class AdminService : Iadmin
         return false;
     }
 }
+public static class AdminUtils
+{
+    public static void AddAdmin(this IServiceCollection services)
+    {
+        services.AddSingleton<Iadmin, AdminService>();
+    }
+}

@@ -66,6 +66,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTask();
 builder.Services.AddUser();
+builder.Services.AddAdmin();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();

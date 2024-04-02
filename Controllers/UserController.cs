@@ -11,10 +11,12 @@ namespace todoList.Controllers;
 public class UserController : ControllerBase
 {
     Iuser IuserService;
+    Iadmin Iadmin;
     public int UserId { get; set; }
-    public UserController(Iuser iuser, IHttpContextAccessor httpContextAccessor)
+    public UserController(Iuser iuser, Iadmin IAdmin, IHttpContextAccessor httpContextAccessor)
     {
         IuserService = iuser;
+        Iadmin = IAdmin;
         UserId = int.Parse(httpContextAccessor.HttpContext?.User?.FindFirst("id")?.Value);
     }
 
@@ -27,8 +29,30 @@ public class UserController : ControllerBase
     {
         return IuserService.GetMyUser(UserId);
     }
+    [HttpGet]
+    [Route("[action]")]
+    [Authorize(Policy = "Admin")]
 
+    public ActionResult<List<User>> GetAllUsers()
+    {
+        return Iadmin.getAllUsers();
+    }
+    [HttpPost]
+    [Route("[action]")]
+    [Authorize(Policy = "Admin")]
 
+    public ActionResult<int> AddUser(User user)
+    {
+        return Iadmin.AddUser(user);
+    }
+    [HttpDelete]
+    [Route("[action]/{userId}")]
+    [Authorize(Policy = "Admin")]
+
+    public ActionResult<bool> DeleteUser(int userId)
+    {
+        return Iadmin.DeleteUser(userId);
+    }
 
 
 
