@@ -1,125 +1,146 @@
 const uri = '/todoTask';
+const token = localStorage.getItem("token")
+alert("rtteet")
 
-function getItems() {
-    fetch(uri)
+function getMyTasks() {
+    alert('i here')
+    fetch('todo/GetMyTasks'), {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token} `
+
+        }
         .then(response => response.json())
+        .then(res => console.log(res))
         .then(data => _displayItems(data))
-        .catch(error => console.error('Unable to get items.', error));
-}
 
-function addItem() {
-    const addNameTextbox = document.getElementById('add-name');
+        .catch(error => console.error('Unable to get items.', error))
+    }
 
-    const item = {
-        IsDo: false,
-        name: addNameTextbox.value.trim()
-    };
+    // function getItems() {
+    //     fetch(uri)
+    //         .then(response => response.json())
+    //         .then(data => _displayItems(data))
+    //         .catch(error => console.error('Unable to get items.', error));
+    // }
 
-    fetch(uri, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(item)
-        })
-        .then(response => response.json())
-        .then(() => {
-            getItems();
-            addNameTextbox.value = '';
-        })
-        .catch(error => console.error('Unable to add item.', error));
-}
+    //     function addItem() {
+    //         const addNameTextbox = document.getElementById('add-name');
 
-function deleteItem(id) {
-    fetch(`${uri}/${id}`, {
-            method: 'DELETE'
-        })
-        .then(() => getItems())
-        .catch(error => console.error('Unable to delete item.', error));
-}
+    //         const item = {
+    //             IsDo: false,
+    //             name: addNameTextbox.value.trim()
+    //         };
 
-function displayEditForm(id) {
-    const item = pizzas.find(item => item.id === id);
+    //         fetch(uri, {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Accept': 'application/json',
+    //                     'Content-Type': 'application/json',
 
-    document.getElementById('edit-name').value = item.name;
-    document.getElementById('edit-id').value = item.id;
-    document.getElementById('edit-IsDo').checked = item.IsDo;
-    document.getElementById('editForm').style.display = 'block';
-}
+    //                 },
+    //                 body: JSON.stringify(item)
+    //             })
+    //             .then(response => response.json())
+    //             .then(() => {
+    //                 getItems();
+    //                 addNameTextbox.value = '';
+    //             })
+    //             .catch(error => console.error('Unable to add item.', error));
+    //     }
 
-function updateItem() {
-    const itemId = document.getElementById('edit-id').value;
-    const item = {
-        id: parseInt(itemId, 10),
-        IsDo: document.getElementById('edit-IsDo').checked,
-        name: document.getElementById('edit-name').value.trim()
-    };
+    //     function deleteItem(id) {
+    //         fetch(`${uri}/${id}`, {
+    //                 method: 'DELETE'
+    //             })
+    //             .then(() => getItems())
+    //             .catch(error => console.error('Unable to delete item.', error));
+    //     }
 
-    fetch(`${uri}/${itemId}`, {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(item)
-        })
-        .then(() => getItems())
-        .catch(error => console.error('Unable to update item.', error));
+    //     function displayEditForm(id) {
+    //         const item = pizzas.find(item => item.id === id);
 
-    closeInput();
+    //         document.getElementById('edit-name').value = item.name;
+    //         document.getElementById('edit-id').value = item.id;
+    //         document.getElementById('edit-IsDo').checked = item.IsDo;
+    //         document.getElementById('editForm').style.display = 'block';
+    //     }
 
-    return false;
-}
+    //     function updateItem() {
+    //         const itemId = document.getElementById('edit-id').value;
+    //         const item = {
+    //             id: parseInt(itemId, 10),
+    //             IsDo: document.getElementById('edit-IsDo').checked,
+    //             name: document.getElementById('edit-name').value.trim()
+    //         };
 
-function closeInput() {
-    document.getElementById('editForm').style.display = 'none';
-}
+    //         fetch(`${uri}/${itemId}`, {
+    //                 method: 'PUT',
+    //                 headers: {
+    //                     'Accept': 'application/json',
+    //                     'Content-Type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify(item)
+    //             })
+    //             .then(() => getItems())
+    //             .catch(error => console.error('Unable to update item.', error));
 
-function _displayCount(itemCount) {
-    const name = (itemCount === 1) ? 'task' : 'task kinds';
+    //         closeInput();
 
-    document.getElementById('counter').innerText = `${itemCount} ${name}`;
-}
+    //         return false;
+    //     }
 
-function _displayItems(data) {
-    const tBody = document.getElementById('pizzas');
-    tBody.innerHTML = '';
+    //     function closeInput() {
+    //         document.getElementById('editForm').style.display = 'none';
+    //     }
 
-    _displayCount(data.length);
+    //     function _displayCount(itemCount) {
+    //         const name = (itemCount === 1) ? 'task' : 'task kinds';
 
-    const button = document.createElement('button');
+    //         document.getElementById('counter').innerText = `${itemCount} ${name}`;
+    //     }
 
-    data.forEach(item => {
-        console.log(item);
-        let IsDoCheckbox = document.createElement('input');
-        IsDoCheckbox.type = 'checkbox';
-        IsDoCheckbox.disabled = true;
-        IsDoCheckbox.checked = item.isDo;
+    function _displayItems(data) {
+        const tBody = document.getElementById('pizzas');
+        tBody.innerHTML = '';
 
-        let editButton = button.cloneNode(false);
-        editButton.innerText = 'Edit';
-        editButton.setAttribute('onclick', `displayEditForm(${item.id})`);
+        _displayCount(data.length);
 
-        let deleteButton = button.cloneNode(false);
-        deleteButton.innerText = 'Delete';
-        deleteButton.setAttribute('onclick', `deleteItem(${item.id})`);
+        const button = document.createElement('button');
 
-        let tr = tBody.insertRow();
+        data.forEach(item => {
+            console.log(item);
+            let IsDoCheckbox = document.createElement('input');
+            IsDoCheckbox.type = 'checkbox';
+            IsDoCheckbox.disabled = true;
+            IsDoCheckbox.checked = item.isDo;
 
-        let td1 = tr.insertCell(0);
-        td1.appendChild(IsDoCheckbox);
+            let editButton = button.cloneNode(false);
+            editButton.innerText = 'Edit';
+            editButton.setAttribute('onclick', `displayEditForm(${item.id})`);
 
-        let td2 = tr.insertCell(1);
-        let textNode = document.createTextNode(item.name);
-        td2.appendChild(textNode);
+            let deleteButton = button.cloneNode(false);
+            deleteButton.innerText = 'Delete';
+            deleteButton.setAttribute('onclick', `deleteItem(${item.id})`);
 
-        let td3 = tr.insertCell(2);
-        td3.appendChild(editButton);
+            let tr = tBody.insertRow();
 
-        let td4 = tr.insertCell(3);
-        td4.appendChild(deleteButton);
-    });
+            let td1 = tr.insertCell(0);
+            td1.appendChild(IsDoCheckbox);
 
-    pizzas = data;
+            let td2 = tr.insertCell(1);
+            let textNode = document.createTextNode(item.name);
+            td2.appendChild(textNode);
+
+            let td3 = tr.insertCell(2);
+            td3.appendChild(editButton);
+
+            let td4 = tr.insertCell(3);
+            td4.appendChild(deleteButton);
+        });
+
+        pizzas = data;
+    }
 }

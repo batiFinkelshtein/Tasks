@@ -1,7 +1,9 @@
 const url = '/login';
 
+function getMyTasks() {
+    alert('efdfghhtx')
+}
 async function login() {
-    alert("hello to login");
     const Name = document.getElementById('name');
     const password = document.getElementById('password');
     const nameValue = Name.value.trim();
@@ -19,8 +21,6 @@ async function login() {
             "isDone": true
         }]
     }
-
-
     await fetch('todo/Login', {
             method: 'POST',
             headers: {
@@ -35,6 +35,7 @@ async function login() {
     .then(() => {
         password.value = '';
         Name.value = '';
+        location.href = 'html/site.html'
     })
 
     .catch(error => console.error('Unable to enter to site please speak with the manager', error));
