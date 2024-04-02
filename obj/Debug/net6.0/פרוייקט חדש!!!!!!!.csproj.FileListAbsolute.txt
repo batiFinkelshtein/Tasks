@@ -72,3 +72,9 @@ Z:\B\פינקלשטיין בתיה\זילברברג\commit_project\Tasks\obj\Deb
 Z:\B\פינקלשטיין בתיה\זילברברג\commit_project\Tasks\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.pdb
 Z:\B\פינקלשטיין בתיה\זילברברג\commit_project\Tasks\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.genruntimeconfig.cache
 Z:\B\פינקלשטיין בתיה\זילברברג\commit_project\Tasks\obj\Debug\net6.0\ref\פרוייקט חדש!!!!!!!.dll
+Z:\B\פינקלשטיין בתיה\זילברברג\commit_project\Tasks\obj\Debug\net6.0\פרוייקט חדש!!!!!!!.sourcelink.json
+Z:\B\פינקלשטיין בתיה\זילברברג\commit_project\Tasks\obj\Debug\net6.0\staticwebassets\msbuild.פרוייקט חדש!!!!!!!.Microsoft.AspNetCore.StaticWebAssets.props
+Z:\B\פינקלשטיין בתיה\זילברברג\commit_project\Tasks\obj\Debug\net6.0\staticwebassets\msbuild.build.פרוייקט חדש!!!!!!!.props
+Z:\B\פינקלשטיין בתיה\זילברברג\commit_project\Tasks\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.פרוייקט חדש!!!!!!!.props
+Z:\B\פינקלשטיין בתיה\זילברברג\commit_project\Tasks\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.פרוייקט חדש!!!!!!!.props
+Z:\B\פינקלשטיין בתיה\זילברברג\commit_project\Tasks\obj\Debug\net6.0\staticwebassets.pack.json

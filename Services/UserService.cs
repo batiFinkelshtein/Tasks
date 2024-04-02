@@ -115,7 +115,7 @@ public class UserService : Iuser
                     if(task.Id==newtask.Id)
                     {
                         task.IsDone=newtask.IsDone;
-                        task.name=newtask.name;
+                        task.Name=newtask.Name;
                         saveToFile();
                         return true;
                     }
@@ -144,7 +144,7 @@ return false;
          }
          return false;
     }
-    public User GetMyUser(int id) { return users.Find(u=>u.id==id); }
+    public User? GetMyUser(int id) { return users.Find(u => u.id == id); }
 
 
 

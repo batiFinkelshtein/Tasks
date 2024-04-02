@@ -15,11 +15,10 @@ using System.Security.Claims;
 
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 
-builder.Services
-     // 
-     .AddAuthentication(options =>
+builder.Services.AddAuthentication(options =>
      {
          options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
      })
@@ -40,7 +39,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddSwaggerGen(c =>
  {
-     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tasks", Version = "v1" });
+     c.SwaggerDoc("v1", new OpenApiInfo { Title = "TasksList", Version = "v1" });
      //auth3
      c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
      {
@@ -67,7 +66,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTask();
 builder.Services.AddUser();
-
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -77,15 +77,16 @@ if (app.Environment.IsDevelopment())
 }
 app.UseRouting();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 app.UseLogMiddleware("file.log");
 app.UseDefaultFiles();
 app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseDefaultFiles();
-app.UseStaticFiles();
-app.UseAuthorization();
+//app.UseStaticFiles();
 app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.UseEndpoints(endpoints =>
 {

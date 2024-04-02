@@ -16,21 +16,21 @@ public class LoginController : ControllerBase
 {
     public Iuser IuserService;
     // public User Myuser = null;
-    public LoginController(Iuser iuser)
+    public LoginController(Iuser iuser,IHttpContextAccessor httpContextAccessor)
     {
-        this.IuserService = iuser;
+       IuserService = iuser;
     }
 
     [HttpPost]
     [Route("[action]")]
-    public ActionResult<String> Login([FromBody] User User)
+    public ActionResult<string> Login([FromBody] User User)
     {
         if (IuserService.findMe(User) == null)
         {
-            return Unauthorized();
+               return BadRequest();
         }
 
-        User Myuser = IuserService.findMe(User);
+        User? Myuser = IuserService.findMe(User);
 
         var claims = new List<Claim>{new Claim("id", Myuser.id.ToString())};
         if (Myuser.isAdmin==true)
@@ -46,22 +46,5 @@ public class LoginController : ControllerBase
 
         return new OkObjectResult(TokenServise.WriteToken(token));
     }
-
-    [HttpGet]
-    [Authorize]
-    [Route("Get")]
-    public ActionResult<List<task>> Get()
-    {
-        return IuserService.GetAllTasks();
-    }
-
-
-
-    // [httpGet]
-    // [Authorize]
-    // public ActionResult<List<task>> GetById()
-    // {
-    //     return IuserService.GetTasksById(Myuser.id);
-    // }
 
 }

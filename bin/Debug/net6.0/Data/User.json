@@ -1,9 +1,11 @@
-[{
+[
+    {
         "id": 1,
         "Username": "joni",
         "Password": "1234",
         "isAdmin": true,
-        "taskList": [{
+        "taskList": [
+            {
                 "Id": 16,
                 "name": "gbdtgdg",
                 "IsDone": false
@@ -25,7 +27,8 @@
         "Username": "menachem",
         "Password": "12",
         "isAdmin": false,
-        "taskList": [{
+        "taskList": [
+            {
                 "Id": 16,
                 "name": "gsgsf",
                 "IsDone": false
@@ -47,10 +50,12 @@
         "Username": "rut",
         "Password": "abc",
         "isAdmin": false,
-        "taskList": [{
-            "Id": 5,
-            "name": "mmm",
-            "IsDone": true
-        }]
+        "taskList": [
+            {
+                "Id": 5,
+                "name": "mmm",
+                "IsDone": true
+            }
+        ]
     }
 ]
