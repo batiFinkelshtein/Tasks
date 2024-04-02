@@ -20,7 +20,7 @@ public class todoController : ControllerBase
 
 
     [HttpGet()]
-    [Route("{id}")]
+    [Route("[action]/{id}")]
     [Authorize(Policy = "Admin")]
 
     public ActionResult<List<task>> GetMyTasksList(int id)
@@ -35,17 +35,32 @@ public class todoController : ControllerBase
         return IuserService.GetTasksById(UserId);
     }
     [HttpGet]
+     [Route("[action]")]
     [Authorize(Policy = "Admin")]
     public ActionResult<List<task>> GetAllUsers()
     {
         return IuserService.GetAllTasks();
     }
     [HttpPost]
-     [Route("[action]")]
+    [Route("[action]")]
     [Authorize]
     public ActionResult<int> AddTask(task newTask)
     {
-        return IuserService. AddTask(UserId, newTask);
+        return IuserService.AddTask(UserId, newTask);
+    }
+    [HttpPut]
+    [Route("[action]/{id}")]
+    [Authorize]
+    public ActionResult<bool> UpdateTask(int id, task newTask)
+    {
+        return IuserService.UpdateTask(UserId, id, newTask);
     }
 
+    [HttpDelete]
+    [Route("[action]/{TaskId}")]
+    [Authorize]
+    public ActionResult<bool> DeleteTask(int TaskId)
+    {
+        return IuserService.DeleteTask(UserId, TaskId);
+    }
 }

@@ -41,3 +41,14 @@
  02/04/2024 17:54:39:/User/GetUser.GET took 5ms. User: unknown
  02/04/2024 18:14:45:/favicon.ico.GET took 67ms. User: unknown
  02/04/2024 18:23:07:/todo/GetMyTasks.GET took 111ms. User: unknown
+ 02/04/2024 18:34:31:/todo/Login.POST took 183ms. User: unknown
+ 02/04/2024 18:34:34:/todo/Login.POST took 1ms. User: unknown
+ 02/04/2024 18:35:03:/todo/1.GET took 54ms. User: 1
+ 02/04/2024 18:35:11:/todo/GetMyTasks.GET took 3ms. User: 1
+ 02/04/2024 18:35:17:/todo.GET took 3ms. User: 1
+ 02/04/2024 18:35:38:/todo/AddTask.POST took 16ms. User: 1
+ 02/04/2024 18:35:59:/todo.GET took 0ms. User: 1
+ 02/04/2024 18:37:29:/todo/Login.POST took 173ms. User: unknown
+ 02/04/2024 18:38:03:/todo/UpdateTask19.PUT took 60ms. User: 1
+ 02/04/2024 18:38:10:/todo/GetMyTasks.GET took 4ms. User: 1
+ 02/04/2024 18:44:13:/todo/DeleteTask/19.DELETE took 62ms. User: unknown

@@ -10,7 +10,7 @@ public interface Iuser
 
     int AddTask(int id, task newtask);
 
-    bool UpdateTask(int id, task newtask);
+    bool UpdateTask(int Userid,int Taskid, task newtask);
 
     bool DeleteTask(int userId, int taskId);
     User? GetMyUser(int id);

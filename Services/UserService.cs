@@ -102,17 +102,17 @@ public class UserService : Iuser
         return newTask.Id;
 
     }
-    public bool UpdateTask(int id, task newtask)
+    public bool UpdateTask(int userid,int taskid ,task newtask)
     {
 
         foreach (User user in users)
         {
             int index;
-            if (user.id == id)
+            if (user.id == userid)
             {
                 foreach (task task in user.taskList)
                 {
-                    if(task.Id==newtask.Id)
+                    if(task.Id==taskid)
                     {
                         task.IsDone=newtask.IsDone;
                         task.Name=newtask.Name;
