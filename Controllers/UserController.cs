@@ -41,7 +41,7 @@ public class UserController : ControllerBase
     [Route("[action]")]
     [Authorize(Policy = "Admin")]
 
-    public ActionResult<int> AddUser(User user)
+    public ActionResult<int> AddUser([FromBody]User user)
     {
         return Iadmin.AddUser(user);
     }

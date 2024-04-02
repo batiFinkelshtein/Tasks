@@ -1,5 +1,4 @@
-const uri = '/todo';
-let pizzas = [];
+const uri = '/todoTask';
 
 function getItems() {
     fetch(uri)

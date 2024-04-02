@@ -44,14 +44,14 @@ public class todoController : ControllerBase
     [HttpPost]
     [Route("[action]")]
     [Authorize]
-    public ActionResult<int> AddTask(task newTask)
+    public ActionResult<int> AddTask([FromBody]task newTask)
     {
         return IuserService.AddTask(UserId, newTask);
     }
     [HttpPut]
     [Route("[action]/{id}")]
     [Authorize]
-    public ActionResult<bool> UpdateTask(int id, task newTask)
+    public ActionResult<bool> UpdateTask(int id,[FromBody] task newTask)
     {
         return IuserService.UpdateTask(UserId, id, newTask);
     }
