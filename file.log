@@ -33,3 +33,11 @@
  02/04/2024 15:14:55:/todo/Login.POST took 198ms. User: unknown
  02/04/2024 15:15:13:/User/GetUser.GET took 51ms. User: 2
  02/04/2024 15:15:20:/User/GetMyTasks.GET took 2ms. User: 2
+ 02/04/2024 17:47:19:/index.html.GET took 33ms. User: unknown
+ 02/04/2024 17:47:19:/css/site.css.GET took 5ms. User: unknown
+ 02/04/2024 17:47:19:/js/site.js.GET took 8ms. User: unknown
+ 02/04/2024 17:47:19:/todo.GET took 186ms. User: unknown
+ 02/04/2024 17:53:19:/todo/Login.POST took 183ms. User: unknown
+ 02/04/2024 17:54:39:/User/GetUser.GET took 5ms. User: unknown
+ 02/04/2024 18:14:45:/favicon.ico.GET took 67ms. User: unknown
+ 02/04/2024 18:23:07:/todo/GetMyTasks.GET took 111ms. User: unknown

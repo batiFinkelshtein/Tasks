@@ -21,29 +21,15 @@ public class UserController : ControllerBase
 
     [HttpGet]
     [Route("[action]")]
-    [Authorize(Policy = "User")]
+    [Authorize]
 
     public ActionResult<User?> GetUser()
     {
         return IuserService.GetMyUser(UserId);
     }
 
-    [HttpGet]
-    [Route("[action]")]
-    [Authorize(Policy = "User")]
 
-    public ActionResult<List<task>> GetMyTasks()
-    {
-        return IuserService.GetTasksById(UserId);
-    }
-    // [HttpGet("{id}")]
-    // [Route("[action]")]
-    // [Authorize(Policy = "User")]
 
-    // public ActionResult<task?> GetMyTask(int id)
-    // {
-    //     return IuserService.GetTaskById(UserId, id);
-    // }
 
 
 
