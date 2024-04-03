@@ -35,7 +35,7 @@ async function login() {
     .then(() => {
         password.value = '';
         Name.value = '';
-        location.href = 'html/site.html'
+        location.href = 'site.html'
     })
 
     .catch(error => console.error('Unable to enter to site please speak with the manager', error));

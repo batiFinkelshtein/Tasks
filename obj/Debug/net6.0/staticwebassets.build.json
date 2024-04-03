@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jZCDfpRBFZYuDT7/whf5xqc7YqcQ6qlIbu2ITJTZtCs=",
+  "Hash": "6pYa4mPLNk7o0kVZoF36ye2WaaCMDlydgcfM4kTX2vU=",
   "Source": "פרוייקט חדש!!!!!!!",
   "BasePath": "_content/פרוייקט חדש!!!!!!!",
   "Mode": "Default",
@@ -32,23 +32,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
-    },
-    {
-      "Identity": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\wwwroot\\html\\site.html",
-      "SourceId": "פרוייקט חדש!!!!!!!",
-      "SourceType": "Discovered",
-      "ContentRoot": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\wwwroot\\",
-      "BasePath": "_content/פרוייקט חדש!!!!!!!",
-      "RelativePath": "html/site.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\html\\site.html"
     },
     {
       "Identity": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\wwwroot\\index.html",
@@ -100,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\s.js"
+    },
+    {
+      "Identity": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\wwwroot\\site.html",
+      "SourceId": "פרוייקט חדש!!!!!!!",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\wwwroot\\",
+      "BasePath": "_content/פרוייקט חדש!!!!!!!",
+      "RelativePath": "site.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\site.html"
     }
   ]
 }
