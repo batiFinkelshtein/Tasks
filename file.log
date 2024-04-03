@@ -206,3 +206,13 @@
  02/04/2024 22:00:53:/todo/Login.POST took 183ms. User: unknown
  02/04/2024 22:00:53:/html/site.html.GET took 1ms. User: unknown
  02/04/2024 22:02:19:/html/site.html.GET took 27ms. User: unknown
+ 02/04/2024 22:06:56:/index.html.GET took 22ms. User: unknown
+ 02/04/2024 22:06:56:/js/login.js.GET took 12ms. User: unknown
+ 02/04/2024 22:06:56:/favicon.ico.GET took 116ms. User: unknown
+ 02/04/2024 22:07:02:/todo/Login.POST took 212ms. User: unknown
+ 02/04/2024 22:07:02:/html/site.html.GET took 6ms. User: unknown
+ 02/04/2024 22:08:30:/html/site.html.GET took 1ms. User: unknown
+ 02/04/2024 22:09:30:/html/site.html.GET took 13ms. User: unknown
+ 02/04/2024 22:10:48:/html/site.html.GET took 19ms. User: unknown
+ 02/04/2024 22:10:48:/js/s.js.GET took 21ms. User: unknown
+ 02/04/2024 22:10:53:/html/todo/GetMyTasks.GET took 203ms. User: unknown

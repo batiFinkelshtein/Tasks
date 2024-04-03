@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ujMgJTWyzlgU1zDp1yenB6/XyB5xaORi8pjUlFmnCcw=",
+  "Hash": "jZCDfpRBFZYuDT7/whf5xqc7YqcQ6qlIbu2ITJTZtCs=",
   "Source": "פרוייקט חדש!!!!!!!",
   "BasePath": "_content/פרוייקט חדש!!!!!!!",
   "Mode": "Default",
@@ -85,12 +85,12 @@
       "OriginalItemSpec": "wwwroot\\js\\login.js"
     },
     {
-      "Identity": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\wwwroot\\js\\site.js",
+      "Identity": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\wwwroot\\js\\s.js",
       "SourceId": "פרוייקט חדש!!!!!!!",
       "SourceType": "Discovered",
       "ContentRoot": "Z:\\B\\פינקלשטיין בתיה\\זילברברג\\commit_project\\Tasks\\wwwroot\\",
       "BasePath": "_content/פרוייקט חדש!!!!!!!",
-      "RelativePath": "js/site.js",
+      "RelativePath": "js/s.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,7 +99,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\site.js"
+      "OriginalItemSpec": "wwwroot\\js\\s.js"
     }
   ]
 }

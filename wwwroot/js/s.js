@@ -14,7 +14,7 @@ function getMyTasks() {
         }
         .then(response => response.json())
         .then(res => console.log(res))
-        .then(data => _displayItems(data))
+        // .then(data => _displayItems(data))
 
         .catch(error => console.error('Unable to get items.', error))
     }
@@ -102,45 +102,45 @@ function getMyTasks() {
     //         document.getElementById('counter').innerText = `${itemCount} ${name}`;
     //     }
 
-    function _displayItems(data) {
-        const tBody = document.getElementById('pizzas');
-        tBody.innerHTML = '';
+    // function _displayItems(data) {
+    //     const tBody = document.getElementById('pizzas');
+    //     tBody.innerHTML = '';
 
-        _displayCount(data.length);
+    //     _displayCount(data.length);
 
-        const button = document.createElement('button');
+    //     const button = document.createElement('button');
 
-        data.forEach(item => {
-            console.log(item);
-            let IsDoCheckbox = document.createElement('input');
-            IsDoCheckbox.type = 'checkbox';
-            IsDoCheckbox.disabled = true;
-            IsDoCheckbox.checked = item.isDo;
+    //     data.forEach(item => {
+    //         console.log(item);
+    //         let IsDoCheckbox = document.createElement('input');
+    //         IsDoCheckbox.type = 'checkbox';
+    //         IsDoCheckbox.disabled = true;
+    //         IsDoCheckbox.checked = item.isDo;
 
-            let editButton = button.cloneNode(false);
-            editButton.innerText = 'Edit';
-            editButton.setAttribute('onclick', `displayEditForm(${item.id})`);
+    //         let editButton = button.cloneNode(false);
+    //         editButton.innerText = 'Edit';
+    //         editButton.setAttribute('onclick', `displayEditForm(${item.id})`);
 
-            let deleteButton = button.cloneNode(false);
-            deleteButton.innerText = 'Delete';
-            deleteButton.setAttribute('onclick', `deleteItem(${item.id})`);
+    //         let deleteButton = button.cloneNode(false);
+    //         deleteButton.innerText = 'Delete';
+    //         deleteButton.setAttribute('onclick', `deleteItem(${item.id})`);
 
-            let tr = tBody.insertRow();
+    //         let tr = tBody.insertRow();
 
-            let td1 = tr.insertCell(0);
-            td1.appendChild(IsDoCheckbox);
+    //         let td1 = tr.insertCell(0);
+    //         td1.appendChild(IsDoCheckbox);
 
-            let td2 = tr.insertCell(1);
-            let textNode = document.createTextNode(item.name);
-            td2.appendChild(textNode);
+    //         let td2 = tr.insertCell(1);
+    //         let textNode = document.createTextNode(item.name);
+    //         td2.appendChild(textNode);
 
-            let td3 = tr.insertCell(2);
-            td3.appendChild(editButton);
+    //         let td3 = tr.insertCell(2);
+    //         td3.appendChild(editButton);
 
-            let td4 = tr.insertCell(3);
-            td4.appendChild(deleteButton);
-        });
+    //         let td4 = tr.insertCell(3);
+    //         td4.appendChild(deleteButton);
+    //     });
 
-        pizzas = data;
-    }
+    //     pizzas = data;
+    // }
 }
