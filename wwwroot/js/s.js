@@ -152,8 +152,9 @@ const drawTask = (task) => {
 
     tasksTable.appendChild(tr)
 }
-
+const myTasks=document.getElementById('myTasks')
 const getMyTasks = () => {
+    myTasks.style='display:none';
     fetch('todo/GetMyTasks', {
             method: 'Get',
             headers: {

@@ -139,6 +139,7 @@ return false;
                  MyIndex=i;
             }
             user.taskList.RemoveAt(MyIndex);
+            saveToFile();
             return true;
             }
          }
