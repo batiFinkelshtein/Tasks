@@ -1,16 +1,17 @@
 const uri = '/todoTask';
 const token = localStorage.getItem("token")
 const auth = `Bearer ${token} `
-const user=document.getElementById('user');
 
-const drawUser = (user) => {
-   console.log(user.userName);
-   const div=document.createElement('div')
-  const h2=document.createElement('h2');
-  const userName=user.userName;
-  h2.innerHTML=userName; 
-  div.appendChild(h2)
-  user.appendChild(div); 
+let myuser=document.getElementById('user');
+
+const drawUser=(user)=>{
+    const div=document.createElement('div');
+    const h2=document.createElement('h2');
+    h2.innerHTML=`hello to ${user.userName} 😀😊😉`
+    h2.style.color='black'
+    div.appendChild(h2);
+    myuser.appendChild(div);
+
 }
 fetch('User/GetUser', {
         method: 'Get',
@@ -30,18 +31,128 @@ fetch('User/GetUser', {
       
         alert("please login again👍")
 });
-
-
-const tasks = document.getElementById('tasks');
-const draw = (data) => {
-  console.log(data);
-
-data.forEach(x => {
-    tasks.innerHTML+=JSON.stringify(x);
-    tasks.appendChild(document.createElement('br'))
-});
-
+const deleteTask=async (task)=>
+{
+    await fetch(`todo/DeleteTask/${task.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        
+    })
+    .then(response => response.json())
+    .then((res) => {if(res==true){alert(`the delete is success 👌👌👌 `)}})
+.catch(error => console.error('Unable to enter to site please speak with the manager', error));
 }
+const taskPut= async(task)=>{
+    await fetch(`todo/UpdateTask/${task.id}`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(task)
+    })
+    .then(response => response.json())
+    .then((res) => {if(res==true){alert(`the edit is success 👌👌👌 `)}})
+.catch(error => console.error('Unable to enter to site please speak with the manager', error));
+};
+const tasks = document.getElementById('tasks');
+const drawTable=()=>{
+    const table=document.createElement('table');
+    table.id='tasksList';
+    tr=document.createElement('tr');
+    const thEdit=document.createElement('th');
+    thEdit.innerHTML='Edit'
+    const thId=document.createElement('th');
+    thId.innerHTML='Id'
+    const thName=document.createElement('th');
+    thName.innerHTML='Name'
+    const thIsDone=document.createElement('th');
+    thIsDone.innerHTML='IsDone'
+    const thDelete=document.createElement('th');
+    thDelete.innerHTML='Delete'
+    const tbody=document.createElement('tbody');
+    tbody.id='tasksTable';
+    tr.appendChild(thEdit);
+    tr.appendChild(thId);
+    tr.appendChild(thName);
+    tr.appendChild(thIsDone);
+    tr.appendChild(thDelete);
+    table.appendChild(tr);
+    table.appendChild(tbody);
+    tasks.appendChild(table)
+}
+const drawTask = (task) => {
+
+    const tasksTable = document.getElementById('tasksTable');
+    const tr = document.createElement('tr')
+
+    const edit = document.createElement('th')
+    const editButton = document.createElement('button')
+    editButton.innerHTML = 'edit'
+
+    const id = document.createElement('th')
+    id.innerHTML = task.id;
+
+    const name = document.createElement('th')
+    const nameInput = document.createElement('input')
+    nameInput.type = Text;
+    nameInput.value = task.name
+
+    const isDone = document.createElement('th')
+    const isDoneInput = document.createElement('input')
+    isDoneInput.type = 'checkbox';
+
+    isDoneInput.checked=task.isDone;
+
+    const deletTask = document.createElement('th')
+    const deleteButton = document.createElement('button')
+    deleteButton.innerHTML = 'delete'
+
+    nameInput.disabled = true;
+    isDoneInput.disabled = true;
+
+    editButton.onclick = () => {
+        if (editButton.innerHTML == 'edit') {
+            editButton.innerHTML = 'ok'
+            nameInput.disabled = false;
+            isDoneInput.disabled = false;
+         
+        }
+        else {
+            editButton.innerHTML = 'edit'
+            nameInput.disabled = true;
+            isDoneInput.disabled = true;
+            task.id=task.id;
+            task.name=nameInput.value;
+            task.isDone=isDoneInput.checked;
+            taskPut(task);
+        }
+    }
+
+    deleteButton.onclick = () => {
+        deleteTask(task);
+        tasksTable.removeChild(tr)
+    }
+
+    edit.appendChild(editButton)
+    name.appendChild(nameInput)
+    isDone.appendChild(isDoneInput)
+    deletTask.appendChild(deleteButton)
+
+    tr.appendChild(edit)
+    tr.appendChild(id)
+    tr.appendChild(name)
+    tr.appendChild(isDone)
+    tr.appendChild(deletTask)
+
+    tasksTable.appendChild(tr)
+}
+
 const getMyTasks = () => {
     fetch('todo/GetMyTasks', {
             method: 'Get',
@@ -52,8 +163,11 @@ const getMyTasks = () => {
             },
         })
         .then(response => response.json())
-        .then((data) => {
-          draw(data);
+        
+        .then((data) => {drawTable(),
+            data.forEach(x => {
+                drawTask(x);
+            });  
 
         })
         .catch((error) => {
@@ -63,141 +177,7 @@ const getMyTasks = () => {
         });
 }
 
-// tasks.style.width(100)
-// ,
-//  p = document.createElement('p'),
-// p.innerHTML(task.Id),
-// tasks.appendChild(p))} 
-    
-        
-
-        // tasks.appendChild('div')
 
 
 
-    
-    // function getItems() {
-    //     fetch(uri)
-    //         .then(response => response.json())
-    //         .then(data => _displayItems(data))
-    //         .catch(error => console.error('Unable to get items.', error));
-    // }
-
-//     function addItem() {
-//         const addNameTextbox = document.getElementById('add-name');
-
-//         const item = {
-//             IsDo: false,
-//             name: addNameTextbox.value.trim()
-//         };
-
-//         fetch(uri, {
-//                 method: 'POST',
-//                 headers: {
-//                     'Accept': 'application/json',
-//                     'Content-Type': 'application/json',
-
-//                 },
-//                 body: JSON.stringify(item)
-//             })
-//             .then(response => response.json())
-//             .then(() => {
-//                 getItems();
-//                 addNameTextbox.value = '';
-//             })
-//             .catch(error => console.error('Unable to add item.', error));
-//     }
-
-//     function deleteItem(id) {
-//         fetch(`${uri}/${id}`, {
-//                 method: 'DELETE'
-//             })
-//             .then(() => getItems())
-//             .catch(error => console.error('Unable to delete item.', error));
-//     }
-
-//     function displayEditForm(id) {
-//         const item = pizzas.find(item => item.id === id);
-
-//         document.getElementById('edit-name').value = item.name;
-//         document.getElementById('edit-id').value = item.id;
-//         document.getElementById('edit-IsDo').checked = item.IsDo;
-//         document.getElementById('editForm').style.display = 'block';
-//     }
-
-//     function updateItem() {
-//         const itemId = document.getElementById('edit-id').value;
-//         const item = {
-//             id: parseInt(itemId, 10),
-//             IsDo: document.getElementById('edit-IsDo').checked,
-//             name: document.getElementById('edit-name').value.trim()
-//         };
-
-//         fetch(`${uri}/${itemId}`, {
-//                 method: 'PUT',
-//                 headers: {
-//                     'Accept': 'application/json',
-//                     'Content-Type': 'application/json'
-//                 },
-//                 body: JSON.stringify(item)
-//             })
-//             .then(() => getItems())
-//             .catch(error => console.error('Unable to update item.', error));
-
-//         closeInput();
-
-//         return false;
-//     }
-
-//     function closeInput() {
-//         document.getElementById('editForm').style.display = 'none';
-//     }
-
-//     function _displayCount(itemCount) {
-//         const name = (itemCount === 1) ? 'task' : 'task kinds';
-
-//         document.getElementById('counter').innerText = `${itemCount} ${name}`;
-//     }
-
-// function _displayItems(data) {
-//     const tBody = document.getElementById('pizzas');
-//     tBody.innerHTML = '';
-
-//     _displayCount(data.length);
-
-//     const button = document.createElement('button');
-
-//     data.forEach(item => {
-//         console.log(item);
-//         let IsDoCheckbox = document.createElement('input');
-//         IsDoCheckbox.type = 'checkbox';
-//         IsDoCheckbox.disabled = true;
-//         IsDoCheckbox.checked = item.isDo;
-
-//         let editButton = button.cloneNode(false);
-//         editButton.innerText = 'Edit';
-//         editButton.setAttribute('onclick', `displayEditForm(${item.id})`);
-
-//         let deleteButton = button.cloneNode(false);
-//         deleteButton.innerText = 'Delete';
-//         deleteButton.setAttribute('onclick', `deleteItem(${item.id})`);
-
-//         let tr = tBody.insertRow();
-
-//         let td1 = tr.insertCell(0);
-//         td1.appendChild(IsDoCheckbox);
-
-//         let td2 = tr.insertCell(1);
-//         let textNode = document.createTextNode(item.name);
-//         td2.appendChild(textNode);
-
-//         let td3 = tr.insertCell(2);
-//         td3.appendChild(editButton);
-
-//         let td4 = tr.insertCell(3);
-//         td4.appendChild(deleteButton);
-//     });
-
-//     pizzas = data;
-// }
-//}
+   
