@@ -1,27 +1,47 @@
 const uri = '/todoTask';
 const token = localStorage.getItem("token")
 const auth = `Bearer ${token} `
-alert("rtteet")
+const user=document.getElementById('user');
 
-// function getMyTasks() {
-//     alert('i here')
-//     fetch('todo/GetMyTasks'), {
-//             method: 'GET',
-//             headers: {
+const drawUser = (user) => {
+   console.log(user.userName);
+   const div=document.createElement('div')
+  const h2=document.createElement('h2');
+  const userName=user.userName;
+  h2.innerHTML=userName; 
+  div.appendChild(h2)
+  user.appendChild(div); 
+}
+fetch('User/GetUser', {
+        method: 'Get',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+    })
+    .then(response => response.json())
+    .then((data) => {
+       
+        drawUser(data);
 
-//                 'accept': ' text / plain ',
-//                 // 'Content-Type': 'application/json',
-//                 'Authorization': auth
+    })
+    .catch((error) => {
+      
+        alert("please login again👍")
+});
 
 
-//             }
-//         }
-//         .then(response => response.json())
-//         .then(res => console.log(res))
-//         // .then(data => _displayItems(data))
+const tasks = document.getElementById('tasks');
+const draw = (data) => {
+  console.log(data);
 
-//     .catch(error => console.error('Unable to get items.', error))
-// };
+data.forEach(x => {
+    tasks.innerHTML+=JSON.stringify(x);
+    tasks.appendChild(document.createElement('br'))
+});
+
+}
 const getMyTasks = () => {
     fetch('todo/GetMyTasks', {
             method: 'Get',
@@ -33,23 +53,35 @@ const getMyTasks = () => {
         })
         .then(response => response.json())
         .then((data) => {
-            console.log(data);
+          draw(data);
 
         })
         .catch((error) => {
             console.error('Unable to get Tasks.', error);
-            alert("your details got expired, please login again")
-            location.href = './login.html'
+            alert("please login again")
+            location.href = 'index.html'
         });
 }
 
+// tasks.style.width(100)
+// ,
+//  p = document.createElement('p'),
+// p.innerHTML(task.Id),
+// tasks.appendChild(p))} 
+    
+        
 
-// function getItems() {
-//     fetch(uri)
-//         .then(response => response.json())
-//         .then(data => _displayItems(data))
-//         .catch(error => console.error('Unable to get items.', error));
-// }
+        // tasks.appendChild('div')
+
+
+
+    
+    // function getItems() {
+    //     fetch(uri)
+    //         .then(response => response.json())
+    //         .then(data => _displayItems(data))
+    //         .catch(error => console.error('Unable to get items.', error));
+    // }
 
 //     function addItem() {
 //         const addNameTextbox = document.getElementById('add-name');
