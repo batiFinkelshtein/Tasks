@@ -20,7 +20,7 @@ Welcome to the Task Manager Web Application! This project is aimed at providing 
 
 To get started with the project, follow these steps:
 
-1. **Clone the Repository**: `git clone https://github.com/yourusername/task-manager.git`
+1. **Clone the Repository**: `git clone https://github.com/batifinkelshtein/task-manager.git`
 2. **Navigate to the Project Directory**: `cd task-manager`
 3. **Run the Application**: Use Visual Studio or the command line to run the application.
 4. **Explore the Features**: Open the application in your browser and start managing tasks!
